@@ -1,0 +1,30 @@
+{
+  "name": "inspire-bot",
+  "version": "1.0.0",
+  "description": "friendly discord bot for cheering up teammates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dezsoab/inspire-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "discord",
+    "bot",
+    "inspire",
+    "quote"
+  ],
+  "author": "Dezso Binder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dezsoab/inspire-bot/issues"
+  },
+  "homepage": "https://github.com/dezsoab/inspire-bot#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
