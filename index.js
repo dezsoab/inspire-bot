@@ -55,16 +55,20 @@ client.on('message', (msg) => {
   }
 });
 
-const job = schedule.scheduleJob('* 9 * * *', async function () {
-  const url = `https://tenor.googleapis.com/v2/search?q=programming&key=${process.env.TENOR_KEY}&client_key=my_test_app&limit=200`;
-  const res = await fetch(url);
-  const data = await res.json();
-  let index = Math.floor(Math.random() * data.results.length);
-  const channel = client.channels.cache.get('986348839827021837');
-  channel.send({ content: data.results[index].url });
-  channel.send(`✨ Good Morning! Have a wonderful day! ✨
-Let me present today's #inspiring quote to you:`);
-  getQuote().then((quote) => channel.send(quote));
+const job = schedule.scheduleJob({ hour: 6, minute: 55 }, async function () {
+  try {
+    const url = `https://tenor.googleapis.com/v2/search?q=programming&key=${process.env.TENOR_KEY}&client_key=my_test_app&limit=200`;
+    const res = await fetch(url);
+    const data = await res.json();
+    let index = Math.floor(Math.random() * data.results.length);
+    const channel = client.channels.cache.get('986348839827021837');
+    channel.send({ content: data.results[index].url });
+    channel.send(`✨ Have a wonderful day dear Students! ✨
+      Let me present today's #inspiring quote to you:`);
+    getQuote().then((quote) => channel.send(quote));
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 client.login(process.env.TOKEN);
